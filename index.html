@@ -1,0 +1,501 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Aritmetika Sosial Kelas VII</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;700;800&family=Fredoka:wght@500;600;700&display=swap">
+<style>
+/* Layout: banner berwarna, menu tab 7 warna (satu bagian tampil per klik), kartu isi, tombol Sebelumnya/Berikutnya. Layar pembuka untuk mengaktifkan musik. */
+:root{
+  --bg:#EAF3FF; --surface:#FFFFFF; --ink:#142038; --muted:#51607E; --line:#CFDDF3;
+  --hero1:#0B8577; --hero2:#2F5FD0; --sun:#FFC933;
+  --t1:#0B8577; --t1i:#FFFFFF; --t2:#2F5FD0; --t2i:#FFFFFF; --t3:#16803C; --t3i:#FFFFFF;
+  --t4:#7041DA; --t4i:#FFFFFF; --t5:#C2570C; --t5i:#FFFFFF; --t6:#C42B64; --t6i:#FFFFFF; --t7:#F2C200; --t7i:#2A2100;
+  --good:#16803C; --good-bg:#D9F5E3; --bad:#C0341D; --bad-bg:#FFE1DA;
+  --focus:#1D4ED8;
+  --font-head:"Fredoka","Nunito","Segoe UI",system-ui,sans-serif;
+  --font-body:"Nunito","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1526; --surface:#16213A; --ink:#E8EEFB; --muted:#9FB0D3; --line:#2B3B61;
+    --hero1:#0B6E64; --hero2:#2447A8; --sun:#FFD54A;
+    --t1:#3DD6C3; --t1i:#06231F; --t2:#7DA2FF; --t2i:#0A1A44; --t3:#5FDB8B; --t3i:#06240F;
+    --t4:#B497FF; --t4i:#1C0F45; --t5:#FFA84D; --t5i:#2D1500; --t6:#FF7FA8; --t6i:#3A0B1D; --t7:#FFD84A; --t7i:#2A2100;
+    --good:#6FD39A; --good-bg:#12301F; --bad:#FF9C86; --bad-bg:#3A1912; --focus:#8FB0FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1526; --surface:#16213A; --ink:#E8EEFB; --muted:#9FB0D3; --line:#2B3B61;
+  --hero1:#0B6E64; --hero2:#2447A8; --sun:#FFD54A;
+  --t1:#3DD6C3; --t1i:#06231F; --t2:#7DA2FF; --t2i:#0A1A44; --t3:#5FDB8B; --t3i:#06240F;
+  --t4:#B497FF; --t4i:#1C0F45; --t5:#FFA84D; --t5i:#2D1500; --t6:#FF7FA8; --t6i:#3A0B1D; --t7:#FFD84A; --t7i:#2A2100;
+  --good:#6FD39A; --good-bg:#12301F; --bad:#FF9C86; --bad-bg:#3A1912; --focus:#8FB0FF; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;
+  padding-block:16px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px;min-width:0}
+h1,h2,h3{font-family:var(--font-head);line-height:1.2;text-wrap:balance;margin:0;font-weight:600}
+h2{font-size:24px;color:var(--tab)} h3{font-size:18px;color:var(--ink)}
+p{margin:0}
+a{color:var(--t2);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+/* banner */
+.hero{position:relative;overflow:hidden;border-radius:20px;padding:22px 20px;color:#fff;background:linear-gradient(120deg,var(--hero1),var(--hero2));display:flex;flex-direction:column;gap:8px}
+.hero .eyebrow{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--sun)}
+.hero h1{font-size:clamp(28px,7vw,40px);font-weight:700;position:relative}
+.hero p{max-width:50ch;color:#EAF6FF;position:relative}
+.deco{position:absolute;font-family:var(--font-head);font-weight:700;color:var(--sun);opacity:.9;pointer-events:none;user-select:none}
+.deco.a{right:18px;top:8px;font-size:64px;transform:rotate(12deg)}
+.deco.b{right:92px;bottom:-6px;font-size:54px;opacity:.5;color:#fff;transform:rotate(-10deg)}
+.deco.c{right:150px;top:14px;font-size:30px;opacity:.55;color:#fff}
+.toggles{display:flex;flex-wrap:wrap;gap:8px;position:relative;margin-top:6px}
+.tg{font:700 14px var(--font-body);color:#fff;background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.55);border-radius:999px;padding:6px 14px;cursor:pointer;min-height:40px}
+.tg[aria-pressed="true"]{background:var(--sun);color:#2A2100;border-color:var(--sun)}
+.vol{display:flex;align-items:center;gap:8px;color:#fff;font:700 14px var(--font-body)}
+.vol input{width:120px;accent-color:var(--sun)}
+/* tab */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;scroll-margin-top:8px}
+.tab{font:600 15px var(--font-head);padding:9px 14px;border-radius:14px;border:2px solid var(--tc);background:var(--surface);color:var(--ink);cursor:pointer;min-height:44px}
+.tab:hover{background:color-mix(in srgb,var(--tc) 14%,var(--surface))}
+.tab[aria-selected="true"]{background:var(--tc);color:var(--tci);box-shadow:0 3px 0 color-mix(in srgb,var(--tc) 55%,#000)}
+.tab[data-tab="mulai"]{--tc:var(--t1);--tci:var(--t1i)} .tab[data-tab="harga"]{--tc:var(--t2);--tci:var(--t2i)}
+.tab[data-tab="untung"]{--tc:var(--t3);--tci:var(--t3i)} .tab[data-tab="persen"]{--tc:var(--t4);--tci:var(--t4i)}
+.tab[data-tab="diskon"]{--tc:var(--t5);--tci:var(--t5i)} .tab[data-tab="contoh"]{--tc:var(--t6);--tci:var(--t6i)}
+.tab[data-tab="cek"]{--tc:var(--t7);--tci:var(--t7i)}
+/* panel */
+.pan{display:flex;flex-direction:column;gap:14px;background:var(--surface);border:1px solid var(--line);border-top:8px solid var(--tab);border-radius:18px;padding:20px 18px;min-width:0}
+#p-mulai{--tab:var(--t1);--tabi:var(--t1i)} #p-harga{--tab:var(--t2);--tabi:var(--t2i)} #p-untung{--tab:var(--t3);--tabi:var(--t3i)}
+#p-persen{--tab:var(--t4);--tabi:var(--t4i)} #p-diskon{--tab:var(--t5);--tabi:var(--t5i)} #p-contoh{--tab:var(--t6);--tabi:var(--t6i)} #p-cek{--tab:var(--t7);--tabi:var(--t7i)}
+#p-cek h2{color:var(--ink)}
+.formula{background:color-mix(in srgb,var(--tab) 14%,var(--surface));border:2px dashed var(--tab);border-radius:14px;padding:12px 14px;font-weight:800;overflow-x:auto}
+.formula small{display:block;font-weight:600;color:var(--muted);margin-top:4px}
+.example{background:color-mix(in srgb,var(--tab) 9%,var(--surface));border-radius:14px;padding:12px 14px}
+.example b{color:var(--ink)}
+.note{font-size:14px;color:var(--muted)}
+.lead{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:700 15px var(--font-body);padding:10px 18px;border-radius:12px;border:2px solid var(--tab);background:var(--tab);color:var(--tabi);text-decoration:none;cursor:pointer;min-height:44px}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pager{display:flex;justify-content:space-between;gap:10px;margin-top:6px;flex-wrap:wrap}
+/* kartu peta belajar */
+.map{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.go{font:600 16px var(--font-head);text-align:left;border:0;border-radius:14px;padding:12px 14px;cursor:pointer;color:var(--ci);background:var(--cc);display:flex;flex-direction:column;gap:2px;min-height:64px}
+.go span{font:600 13px var(--font-body);opacity:.92}
+.go[data-go="harga"]{--cc:var(--t2);--ci:var(--t2i)} .go[data-go="untung"]{--cc:var(--t3);--ci:var(--t3i)}
+.go[data-go="persen"]{--cc:var(--t4);--ci:var(--t4i)} .go[data-go="diskon"]{--cc:var(--t5);--ci:var(--t5i)}
+.go[data-go="contoh"]{--cc:var(--t6);--ci:var(--t6i)} .go[data-go="cek"]{--cc:var(--t7);--ci:var(--t7i)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.steps li{display:flex;gap:12px;align-items:flex-start}
+.steps input{width:24px;height:24px;margin-top:3px;accent-color:var(--tab);flex:none}
+.steps label{display:flex;flex-direction:column;gap:2px;cursor:pointer}
+.steps .t{font-weight:800}.steps .d{color:var(--muted);font-size:14px}
+/* tabel */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tabi);background:var(--tab)}
+tr:last-child td{border-bottom:0}
+td.u{color:var(--good);font-weight:800} td.r{color:var(--bad);font-weight:800}
+/* kalkulator */
+.box{border:2px solid var(--tab);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;background:color-mix(in srgb,var(--tab) 6%,var(--surface))}
+.tag{font-size:12px;font-weight:800;color:var(--tabi);background:var(--tab);padding:2px 10px;border-radius:999px;align-self:flex-start}
+.calc{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field label{font-size:13px;color:var(--muted);font-weight:800}
+.field input,.qrow input{font:700 18px var(--font-body);font-variant-numeric:tabular-nums;padding:10px 12px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);width:100%;min-height:46px}
+.field input:focus,.qrow input:focus{border-color:var(--tab)}
+.out{display:flex;flex-direction:column;gap:6px;font-variant-numeric:tabular-nums}
+.pill{align-self:flex-start;font-size:13px;font-weight:800;padding:3px 12px;border-radius:999px}
+.pill.u{background:var(--good-bg);color:var(--good)} .pill.r{background:var(--bad-bg);color:var(--bad)} .pill.i{background:var(--t7);color:var(--t7i)}
+/* contoh */
+details{border:2px solid var(--line);border-radius:14px;background:var(--surface)}
+details[open]{border-color:var(--tab)}
+summary{cursor:pointer;padding:12px 14px;font-weight:800;list-style:none;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"Lihat penyelesaian";font-size:13px;font-weight:700;color:var(--tab);white-space:nowrap;margin-top:2px}
+details[open] summary::after{content:"Tutup"}
+.sol{padding:0 14px 14px;display:flex;flex-direction:column;gap:6px;font-variant-numeric:tabular-nums}
+.mis{display:flex;flex-direction:column;gap:10px;margin:0;padding:0;list-style:none}
+.mis li{background:var(--bad-bg);border-radius:14px;padding:12px 14px}
+.mis li b{color:var(--bad)}
+/* cek */
+.q{display:flex;flex-direction:column;gap:8px;padding:14px;border:2px solid var(--line);border-radius:14px}
+.q.done{border-color:var(--good);background:var(--good-bg)}
+.qrow{display:flex;flex-wrap:wrap;gap:10px}
+.qrow input{flex:1 1 140px;width:auto}
+.fb{font-size:15px;min-height:1.4em;font-weight:700}
+.fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.score{font:600 20px var(--font-head)}
+@media (prefers-reduced-motion:no-preference){ .pan{animation:pop .22s ease-out} .q.done{animation:pop .3s ease-out} .tab{transition:background .15s} }
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.99)}to{opacity:1;transform:none}}
+footer{color:var(--muted);font-size:13px;display:flex;flex-direction:column;gap:6px;padding:0 4px}
+footer ul{margin:0;padding-left:18px}
+/* layar pembuka */
+#gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--hero1),var(--hero2));
+  padding-block:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#gate .card{background:var(--surface);border-radius:24px;padding:26px 22px;max-width:420px;width:100%;display:flex;flex-direction:column;gap:14px;text-align:center;box-shadow:0 10px 0 rgba(0,0,0,.18)}
+#gate h1{font-size:30px;color:var(--t1)}
+#gate .big{font:700 56px var(--font-head);color:var(--t5);line-height:1}
+#gate .btn{width:100%}
+</style>
+
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gt">
+  <div class="card">
+    <div class="big" aria-hidden="true">Rp %</div>
+    <h1 id="gt">Selamat datang di Pasar Digital!</h1>
+    <p class="lead">Belajar untung, rugi, dan diskon dengan cara yang lebih seru. Pakai headphone atau naikkan volume ya.</p>
+    <button class="btn" id="goMusic" type="button" data-sfx="none" style="--tab:var(--t3);--tabi:var(--t3i)">Mulai dengan musik</button>
+    <button class="btn ghost" id="goSilent" type="button" data-sfx="none" style="--tab:var(--t2);--tabi:var(--t2i)">Mulai tanpa suara</button>
+    <p class="note">Suara bisa dinyalakan atau dimatikan kapan saja lewat tombol di bagian atas halaman.</p>
+  </div>
+</div>
+
+<main id="main" inert>
+<header class="hero">
+  <span class="eyebrow">Matematika · Kelas VII · Fase D</span>
+  <h1>Aritmetika Sosial: Untung, Rugi, dan Diskon</h1>
+  <p>Halaman belajar sebelum tatap muka. Materinya kamu pakai di kelas untuk simulasi “Pasar Digital Kelas VII”.</p>
+  <div class="toggles">
+    <button class="tg" id="tgMusic" type="button" aria-pressed="true" data-sfx="none">Musik: nyala</button>
+    <button class="tg" id="tgSfx" type="button" aria-pressed="true" data-sfx="none">Suara efek: nyala</button>
+    <label class="vol">Volume <input type="range" id="vol" min="0" max="100" value="100" aria-label="Volume web"></label>
+  </div>
+  <span class="deco a" aria-hidden="true">%</span><span class="deco b" aria-hidden="true">Rp</span><span class="deco c" aria-hidden="true">+ −</span>
+</header>
+
+<div class="tabs" id="tabs" role="tablist" aria-label="Menu materi">
+  <button class="tab" role="tab" id="t-mulai" aria-controls="p-mulai" data-tab="mulai" data-sfx="tab">Mulai</button>
+  <button class="tab" role="tab" id="t-harga" aria-controls="p-harga" data-tab="harga" data-sfx="tab">A · Harga</button>
+  <button class="tab" role="tab" id="t-untung" aria-controls="p-untung" data-tab="untung" data-sfx="tab">B · Untung &amp; Rugi</button>
+  <button class="tab" role="tab" id="t-persen" aria-controls="p-persen" data-tab="persen" data-sfx="tab">C · Persentase</button>
+  <button class="tab" role="tab" id="t-diskon" aria-controls="p-diskon" data-tab="diskon" data-sfx="tab">D · Diskon</button>
+  <button class="tab" role="tab" id="t-contoh" aria-controls="p-contoh" data-tab="contoh" data-sfx="tab">Contoh Soal</button>
+  <button class="tab" role="tab" id="t-cek" aria-controls="p-cek" data-tab="cek" data-sfx="tab">Cek Pemahaman</button>
+</div>
+
+<section class="pan" id="p-mulai" role="tabpanel" aria-labelledby="t-mulai">
+  <h2>Langkah belajar sebelum kelas</h2>
+  <ul class="steps">
+    <li><input type="checkbox" id="s1" data-k="s1"><label for="s1"><span class="t">1. Tonton video pengantar (9 menit 59 detik)</span><span class="d">Boleh dijeda. Catat istilah penting di buku: harga beli, harga jual, untung, rugi, persentase.</span></label></li>
+    <li><input type="checkbox" id="s2" data-k="s2"><label for="s2"><span class="t">2. Baca materi di tab A sampai D</span><span class="d">Klik menu warna di atas untuk pindah bagian, lalu lihat Contoh Soal.</span></label></li>
+    <li><input type="checkbox" id="s3" data-k="s3"><label for="s3"><span class="t">3. Kerjakan kuis pemantik (4 soal)</span><span class="d">Kirim jawabanmu sebelum jam pelajaran dimulai.</span></label></li>
+  </ul>
+  <div class="row">
+    <a class="btn" href="https://youtu.be/wdwuoOQJ8HQ" target="_blank" rel="noopener">Buka video di YouTube</a>
+    <a class="btn ghost" id="kuisBtn" href="#" aria-disabled="true">Kuis pemantik (Google Form)</a>
+  </div>
+  <p class="note" id="kuisNote">Tautan kuis akan diisi guru. Sementara itu, buka kuis dari Google Classroom.</p>
+  <h3>Peta belajar</h3>
+  <div class="map">
+    <button class="go" type="button" data-go="harga" data-sfx="tab">A · Harga<span>Harga beli dan harga jual</span></button>
+    <button class="go" type="button" data-go="untung" data-sfx="tab">B · Untung &amp; Rugi<span>Kapan untung, kapan rugi</span></button>
+    <button class="go" type="button" data-go="persen" data-sfx="tab">C · Persentase<span>Berapa persen untungnya</span></button>
+    <button class="go" type="button" data-go="diskon" data-sfx="tab">D · Diskon<span>Harga setelah potongan</span></button>
+    <button class="go" type="button" data-go="contoh" data-sfx="tab">Contoh Soal<span>Lengkap dengan jawaban</span></button>
+    <button class="go" type="button" data-go="cek" data-sfx="tab">Cek Pemahaman<span>Ketik jawabanmu</span></button>
+  </div>
+</section>
+
+<section class="pan" id="p-harga" role="tabpanel" aria-labelledby="t-harga" hidden>
+  <h2>A. Harga beli dan harga jual</h2>
+  <p>Pedagang lebih dulu membeli barang dari distributor, lalu menjualnya kepada pembeli. Harga saat pedagang membeli disebut <b>harga beli</b> (modal). Harga saat ia menjual disebut <b>harga jual</b>.</p>
+  <div class="formula">Harga beli 1 barang = harga beli seluruhnya ÷ banyak barang
+    <small>Dipakai bila barang dibeli sekaligus, misalnya 1 lusin atau 1 dus.</small></div>
+  <div class="example"><b>Contoh.</b> Satu lusin gelas (12 buah) dibeli Rp96.000. Harga beli 1 gelas = 96.000 ÷ 12 = Rp8.000.</div>
+</section>
+
+<section class="pan" id="p-untung" role="tabpanel" aria-labelledby="t-untung" hidden>
+  <h2>B. Untung, rugi, dan impas</h2>
+  <div class="tw"><table>
+    <thead><tr><th>Keadaan</th><th>Terjadi bila</th><th>Rumus</th></tr></thead>
+    <tbody>
+      <tr><td class="u">Untung</td><td>Harga jual &gt; harga beli</td><td>Untung = Harga Jual − Harga Beli</td></tr>
+      <tr><td class="r">Rugi</td><td>Harga jual &lt; harga beli</td><td>Rugi = Harga Beli − Harga Jual</td></tr>
+      <tr><td>Impas</td><td>Harga jual = harga beli</td><td>Tidak untung dan tidak rugi</td></tr>
+    </tbody></table></div>
+  <div class="formula">Harga Jual = Harga Beli + Untung<br>Harga Jual = Harga Beli − Rugi<br>Harga Beli = Harga Jual − Untung</div>
+</section>
+
+<section class="pan" id="p-persen" role="tabpanel" aria-labelledby="t-persen" hidden>
+  <h2>C. Persentase untung dan rugi</h2>
+  <p>Untung Rp10.000 bisa besar bagi pedagang bermodal Rp20.000, tetapi kecil bagi yang bermodal Rp1.000.000. Karena itu kita memakai persentase, yang <b>selalu dihitung terhadap harga beli</b>.</p>
+  <div class="formula">% Untung = (Untung ÷ Harga Beli) × 100%<br>% Rugi = (Rugi ÷ Harga Beli) × 100%
+    <small>Penyebutnya selalu harga beli, bukan harga jual.</small></div>
+  <div class="example"><b>Contoh.</b> Sinta membeli sepatu Rp200.000 dan menjualnya Rp250.000. Untung = 250.000 − 200.000 = Rp50.000. Persentase untung = (50.000 ÷ 200.000) × 100% = 25%.</div>
+  <div class="box">
+    <h3>Periksa hitunganmu: untung atau rugi?</h3>
+    <span class="tag">Contoh isian: soal Sinta. Ganti angkanya!</span>
+    <div class="calc">
+      <div class="field"><label for="beli">Harga beli (Rp)</label><input id="beli" type="number" inputmode="numeric" min="0" step="1000" value="200000"></div>
+      <div class="field"><label for="jual">Harga jual (Rp)</label><input id="jual" type="number" inputmode="numeric" min="0" step="1000" value="250000"></div>
+    </div>
+    <div class="out" id="out1" aria-live="polite"></div>
+    <p class="note">Alat ini untuk memeriksa hasil. Di kelas, tulis langkah perhitunganmu sendiri di LKPD.</p>
+  </div>
+</section>
+
+<section class="pan" id="p-diskon" role="tabpanel" aria-labelledby="t-diskon" hidden>
+  <h2>D. Diskon dan harga yang dibayar</h2>
+  <p>Diskon (rabat) adalah potongan harga dari penjual. Besarnya dinyatakan dalam persen dan dihitung dari <b>harga sebelum diskon</b>.</p>
+  <div class="formula">Besar diskon = % diskon × harga sebelum diskon<br>Harga dibayar = harga sebelum diskon − besar diskon
+    <small>Cara cepat: harga dibayar = (100% − % diskon) × harga sebelum diskon.</small></div>
+  <div class="example"><b>Contoh.</b> Kemeja Rp180.000 diskon 30%. Besar diskon = 30% × 180.000 = Rp54.000. Harga dibayar = 180.000 − 54.000 = Rp126.000. Cara cepat: 70% × 180.000 = Rp126.000.</div>
+  <div class="box">
+    <h3>Periksa hitunganmu: harga setelah diskon</h3>
+    <span class="tag">Contoh isian: kemeja. Ganti angkanya!</span>
+    <div class="calc">
+      <div class="field"><label for="awal">Harga sebelum diskon (Rp)</label><input id="awal" type="number" inputmode="numeric" min="0" step="1000" value="180000"></div>
+      <div class="field"><label for="disk">Diskon (%)</label><input id="disk" type="number" inputmode="decimal" min="0" max="100" step="1" value="30"></div>
+    </div>
+    <div class="out" id="out2" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="pan" id="p-contoh" role="tabpanel" aria-labelledby="t-contoh" hidden>
+  <h2>Contoh soal dan penyelesaian</h2>
+  <p class="note">Coba kerjakan di buku dulu, baru buka penyelesaiannya.</p>
+  <details><summary data-sfx="reveal"><span>1. Bu Sari membeli 1 dus air mineral berisi 48 botol seharga Rp96.000, lalu menjualnya Rp3.000 per botol. Untung atau rugi? Berapa persen?</span></summary>
+    <div class="sol"><span>Harga beli 1 botol = 96.000 ÷ 48 = Rp2.000.</span><span>Harga jual Rp3.000, jadi untung = 3.000 − 2.000 = Rp1.000 per botol.</span><span>Persentase untung = (1.000 ÷ 2.000) × 100% = 50%.</span><span>Total untung = 48 × 1.000 = Rp48.000.</span></div></details>
+  <details><summary data-sfx="reveal"><span>2. Andi membeli sepeda bekas Rp1.200.000 dan menjualnya Rp1.020.000. Untung atau rugi? Berapa persen?</span></summary>
+    <div class="sol"><span>Harga jual &lt; harga beli, jadi rugi.</span><span>Rugi = 1.200.000 − 1.020.000 = Rp180.000.</span><span>Persentase rugi = (180.000 ÷ 1.200.000) × 100% = 15%.</span></div></details>
+  <details><summary data-sfx="reveal"><span>3. Sebuah jaket dijual Rp360.000 dengan diskon 25%. Berapa yang harus dibayar pembeli?</span></summary>
+    <div class="sol"><span>Besar diskon = 25% × 360.000 = Rp90.000.</span><span>Harga bayar = 360.000 − 90.000 = Rp270.000.</span><span>Cara cepat: 75% × 360.000 = Rp270.000.</span></div></details>
+  <details><summary data-sfx="reveal"><span>4. Pedagang membeli tas Rp150.000 dan ingin untung 20%. Berapa harga jualnya?</span></summary>
+    <div class="sol"><span>Untung = 20% × 150.000 = Rp30.000.</span><span>Harga jual = 150.000 + 30.000 = Rp180.000.</span></div></details>
+  <h3>Kekeliruan yang sering terjadi</h3>
+  <ul class="mis">
+    <li><b>Salah:</b> menghitung persen untung dari harga jual, misalnya (1.000 ÷ 3.000) × 100%. <b>Benar:</b> bagi dengan harga beli.</li>
+    <li><b>Salah:</b> diskon 25% berarti membayar 25%. <b>Benar:</b> kamu membayar 75% dari harga awal.</li>
+    <li><b>Salah:</b> untung rupiah yang besar pasti persentasenya besar. <b>Benar:</b> modal tiap pedagang bisa berbeda, jadi bandingkan dengan persentase.</li>
+  </ul>
+</section>
+
+<section class="pan" id="p-cek" role="tabpanel" aria-labelledby="t-cek" hidden>
+  <h2>Cek pemahaman</h2>
+  <p class="note">Ketik jawabanmu (angka saja), lalu tekan Periksa. Latihan ini tidak dinilai dan tidak dikirim ke guru. Kuis yang dinilai ada di Google Form.</p>
+  <div id="quiz" style="display:flex;flex-direction:column;gap:12px"></div>
+  <p class="score" id="score" aria-live="polite">Benar 0 dari 3</p>
+</section>
+
+<footer>
+  <span>Disusun Kelompok 4 · Teknologi Pembelajaran Matematika · RPP Blended Learning, Aritmetika Sosial kelas VII.</span>
+  <ul>
+    <li>As’ari, A. R., dkk. (2017). <i>Matematika: Buku siswa SMP/MTs kelas VII semester 2</i>, Bab 6 Aritmetika Sosial. Kemendikbud.</li>
+    <li>Susanto, D., dkk. (2022). <i>Matematika untuk SMP/MTs kelas VII</i> (Jilid 1). Kemendikbudristek.</li>
+    <li>Video: “Aritmatika Sosial: Harga Jual, Harga Beli, Untung, Rugi, Persentase Untung Rugi” (youtu.be/wdwuoOQJ8HQ).</li>
+  </ul>
+</footer>
+</main>
+
+<script>
+(function(){
+  var KUIS_URL = "https://docs.google.com/forms/d/1rApb7AsM-VbNfZYf2scf2yGCACv1Gadjjuh63VmDBy0/viewform"; /* isi dengan tautan Google Form kuis pemantik */
+  var $ = function(id){ return document.getElementById(id); };
+  var store = {
+    get:function(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+    set:function(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+  };
+  var rp = function(n){ return "Rp" + Math.round(n).toLocaleString("id-ID"); };
+  var pc = function(x){ return (Math.round(x*100)/100).toString().replace(".", ","); };
+
+  /* ================= AUDIO (disintesis, tanpa berkas) ================= */
+  var musicOn = store.get("arsos-music")!=="0", sfxOn = store.get("arsos-sfx")!=="0";
+  var ctx=null, master, mGain, sGain, noise, timer=null, nextT=0, step=0;
+  var PENT=[60,62,64,67,69,72,74,76,79,81];
+  var vol=parseInt(store.get("arsos-vol")||"100",10); if(isNaN(vol)) vol=100;
+  function volGain(){ return vol/100*3; }
+  var midi=function(m){ return 440*Math.pow(2,(m-69)/12); };
+
+  function initAudio(){
+    if(ctx) return true;
+    var AC=window.AudioContext||window.webkitAudioContext; if(!AC) return false;
+    try{ ctx=new AC(); }catch(e){ ctx=null; return false; }
+    var comp=ctx.createDynamicsCompressor(); comp.threshold.value=-14; comp.knee.value=10; comp.ratio.value=6; comp.attack.value=.003; comp.release.value=.2; comp.connect(ctx.destination);
+    master=ctx.createGain(); master.gain.value=volGain(); master.connect(comp);
+    mGain=ctx.createGain(); mGain.gain.value=1; mGain.connect(master);
+    sGain=ctx.createGain(); sGain.gain.value=2.2; sGain.connect(master);
+    var len=Math.floor(ctx.sampleRate*.08); noise=ctx.createBuffer(1,len,ctx.sampleRate);
+    var d=noise.getChannelData(0); for(var i=0;i<len;i++) d[i]=Math.random()*2-1;
+    return true;
+  }
+  function tone(f,t,dur,o){
+    o=o||{}; var osc=ctx.createOscillator(), g=ctx.createGain();
+    osc.type=o.type||"sine"; osc.frequency.setValueAtTime(f,t);
+    if(o.to) osc.frequency.exponentialRampToValueAtTime(o.to,t+dur);
+    var v=o.vol||.15;
+    g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(v,t+(o.att||.005)); g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+    osc.connect(g); g.connect(o.dest||sGain); osc.start(t); osc.stop(t+dur+.03);
+  }
+  function hat(t){
+    var s=ctx.createBufferSource(), f=ctx.createBiquadFilter(), g=ctx.createGain();
+    s.buffer=noise; f.type="highpass"; f.frequency.value=7000;
+    g.gain.setValueAtTime(.05,t); g.gain.exponentialRampToValueAtTime(.0001,t+.05);
+    s.connect(f); f.connect(g); g.connect(mGain); s.start(t); s.stop(t+.06);
+  }
+  function sfx(name,arg){
+    if(!sfxOn||!ctx) return;
+    if(ctx.state==="suspended") ctx.resume();
+    var t=ctx.currentTime+.005;
+    if(name==="click") tone(700,t,.08,{type:"triangle",vol:.12,to:480});
+    else if(name==="tab"){ tone(523,t,.1,{type:"triangle"}); tone(784,t+.07,.16,{type:"triangle"}); }
+    else if(name==="reveal"){ tone(880,t,.12,{vol:.1}); tone(1319,t+.08,.22,{vol:.08}); }
+    else if(name==="key"){ if(arg<0) tone(220,t,.07,{type:"square",vol:.05}); else tone(midi(PENT[arg%10]),t,.18,{type:"triangle",vol:.14}); }
+    else if(name==="good"){ [72,76,79,84].forEach(function(m,i){ tone(midi(m),t+i*.09,.3,{vol:.16}); tone(midi(m)*2,t+i*.09,.2,{vol:.04}); }); }
+    else if(name==="bad"){ tone(220,t,.3,{type:"sawtooth",vol:.07,to:150}); tone(165,t+.15,.36,{type:"sawtooth",vol:.07,to:110}); }
+  }
+  /* musik: lagu ceria 4 birama, mengulang terus (C - Am - F - G) */
+  var CH=[[48,[60,64,67]],[45,[57,60,64]],[41,[57,60,65]],[43,[59,62,67]]];
+  var MEL=[79,0,76,0,72,0,76,79, 81,0,79,0,76,0,72,0, 77,0,76,0,72,0,69,72, 74,0,71,0,74,0,79,0];
+  var ARP=[0,1,2,1,0,1,2,1];
+  function sched(){
+    while(nextT<ctx.currentTime+.35){
+      var bar=Math.floor(step/8)%4, s=step%8, ch=CH[bar];
+      tone(midi(ch[1][ARP[s]]),nextT,.42,{type:"triangle",vol:.07,dest:mGain});
+      if(s===0||s===4){ tone(midi(ch[0]),nextT,.5,{vol:.16,dest:mGain}); tone(120,nextT,.15,{vol:.16,to:45,dest:mGain}); }
+      var m=MEL[step%32]; if(m) tone(midi(m),nextT,.36,{vol:.11,dest:mGain});
+      if(s%2===1) hat(nextT);
+      nextT+=.3125; step++;
+    }
+  }
+  function startMusic(){ if(!ctx||!musicOn||timer) return; if(ctx.state==="suspended") ctx.resume(); nextT=ctx.currentTime+.1; timer=setInterval(sched,100); }
+  function stopMusic(){ if(timer){ clearInterval(timer); timer=null; } }
+  function paintToggles(){
+    var m=$("tgMusic"), s=$("tgSfx");
+    m.setAttribute("aria-pressed",musicOn); m.textContent="Musik: "+(musicOn?"nyala":"mati");
+    s.setAttribute("aria-pressed",sfxOn); s.textContent="Suara efek: "+(sfxOn?"nyala":"mati");
+  }
+  $("tgMusic").addEventListener("click",function(){
+    musicOn=!musicOn; store.set("arsos-music",musicOn?"1":"0"); paintToggles();
+    if(musicOn){ initAudio(); startMusic(); sfx("click"); } else stopMusic();
+  });
+  $("tgSfx").addEventListener("click",function(){
+    sfxOn=!sfxOn; store.set("arsos-sfx",sfxOn?"1":"0"); paintToggles();
+    if(sfxOn){ initAudio(); sfx("click"); }
+  });
+  document.addEventListener("visibilitychange",function(){
+    if(!ctx) return;
+    if(document.hidden) ctx.suspend(); else ctx.resume();
+  });
+  /* layar pembuka: pengguna harus mengetuk dulu agar browser mengizinkan suara */
+  function enter(withSound){
+    musicOn=withSound; sfxOn=withSound; store.set("arsos-music",withSound?"1":"0"); store.set("arsos-sfx",withSound?"1":"0");
+    paintToggles();
+    if(withSound && initAudio()){ startMusic(); sfx("good"); }
+    $("gate").hidden=true; $("main").inert=false; $("main").removeAttribute("inert");
+  }
+  $("goMusic").addEventListener("click",function(){ enter(true); });
+  $("goSilent").addEventListener("click",function(){ enter(false); });
+  paintToggles();
+
+  var vs=$("vol"); vs.value=vol;
+  vs.addEventListener("input",function(){ vol=parseInt(vs.value,10); store.set("arsos-vol",String(vol)); if(master) master.gain.value=volGain(); });
+  /* suara klik umum + ketikan angka */
+  document.addEventListener("click",function(e){
+    var t=e.target.closest("[data-sfx],button,a,summary,input[type=checkbox]"); if(!t) return;
+    var n=t.getAttribute("data-sfx")||"click"; if(n!=="none") sfx(n);
+  });
+  document.addEventListener("input",function(e){
+    var el=e.target; if(el.tagName!=="INPUT"||el.type==="checkbox") return;
+    if(e.inputType&&e.inputType.indexOf("delete")===0) sfx("key",-1);
+    else if(e.data&&/^[0-9]$/.test(e.data)) sfx("key",+e.data);
+    else if(!e.data){ var v=el.value; var ch=v.charAt(v.length-1); if(/[0-9]/.test(ch)) sfx("key",+ch); }
+  });
+
+  /* ================= TAB ================= */
+  var NAMES=["mulai","harga","untung","persen","diskon","contoh","cek"], cur="mulai";
+  function show(n,quiet){
+    if(NAMES.indexOf(n)<0) n="mulai";
+    NAMES.forEach(function(x){
+      $("p-"+x).hidden = x!==n;
+      var b=$("t-"+x); b.setAttribute("aria-selected", x===n); b.tabIndex = x===n?0:-1;
+    });
+    cur=n;
+    try{ history.replaceState(null,"","#"+n); }catch(e){}
+    if(!quiet) $("tabs").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  document.querySelectorAll("[data-tab]").forEach(function(b){ b.addEventListener("click",function(){ show(b.dataset.tab); }); });
+  document.querySelectorAll("[data-go]").forEach(function(b){ b.addEventListener("click",function(){ show(b.dataset.go); }); });
+  $("tabs").addEventListener("keydown",function(e){
+    var i=NAMES.indexOf(cur), j=-1;
+    if(e.key==="ArrowRight") j=(i+1)%NAMES.length; else if(e.key==="ArrowLeft") j=(i+NAMES.length-1)%NAMES.length;
+    if(j>=0){ e.preventDefault(); show(NAMES[j],true); $("t-"+NAMES[j]).focus(); sfx("tab"); }
+  });
+  window.addEventListener("hashchange",function(){ show(location.hash.slice(1),true); });
+  /* tombol Sebelumnya / Berikutnya di tiap bagian */
+  var LABEL={mulai:"Mulai",harga:"A · Harga",untung:"B · Untung & Rugi",persen:"C · Persentase",diskon:"D · Diskon",contoh:"Contoh Soal",cek:"Cek Pemahaman"};
+  NAMES.forEach(function(n,i){
+    var pg=document.createElement("div"); pg.className="pager";
+    if(i>0){ var p=document.createElement("button"); p.type="button"; p.className="btn ghost"; p.setAttribute("data-sfx","tab"); p.textContent="‹ "+LABEL[NAMES[i-1]]; p.addEventListener("click",function(){ show(NAMES[i-1]); }); pg.appendChild(p); } else pg.appendChild(document.createElement("span"));
+    if(i<NAMES.length-1){ var q=document.createElement("button"); q.type="button"; q.className="btn"; q.setAttribute("data-sfx","tab"); q.textContent=LABEL[NAMES[i+1]]+" ›"; q.addEventListener("click",function(){ show(NAMES[i+1]); }); pg.appendChild(q); }
+    $("p-"+n).appendChild(pg);
+  });
+
+  /* tautan kuis + centang langkah */
+  if(KUIS_URL){ var kb=$("kuisBtn"); kb.href=KUIS_URL; kb.target="_blank"; kb.rel="noopener"; kb.removeAttribute("aria-disabled"); $("kuisNote").hidden=true; }
+  else $("kuisBtn").addEventListener("click",function(e){ e.preventDefault(); });
+  document.querySelectorAll(".steps input").forEach(function(c){
+    c.checked = store.get("arsos-"+c.dataset.k)==="1";
+    c.addEventListener("change",function(){ store.set("arsos-"+c.dataset.k,c.checked?"1":"0"); });
+  });
+
+  /* ================= KALKULATOR ================= */
+  function calc1(){
+    var beli=parseFloat($("beli").value), jual=parseFloat($("jual").value), o=$("out1");
+    if(!(beli>0)||isNaN(jual)||jual<0){ o.innerHTML='<span>Isi harga beli (lebih dari 0) dan harga jual.</span>'; return; }
+    var sel=jual-beli, h;
+    if(sel>0) h='<span class="pill u">Untung</span><span>Untung = '+rp(jual)+' − '+rp(beli)+' = <b>'+rp(sel)+'</b></span><span>% Untung = ('+rp(sel)+' ÷ '+rp(beli)+') × 100% = <b>'+pc(sel/beli*100)+'%</b></span>';
+    else if(sel<0){ var r=-sel; h='<span class="pill r">Rugi</span><span>Rugi = '+rp(beli)+' − '+rp(jual)+' = <b>'+rp(r)+'</b></span><span>% Rugi = ('+rp(r)+' ÷ '+rp(beli)+') × 100% = <b>'+pc(r/beli*100)+'%</b></span>'; }
+    else h='<span class="pill i">Impas</span><span>Harga jual sama dengan harga beli: tidak untung dan tidak rugi.</span>';
+    o.innerHTML=h;
+  }
+  function calc2(){
+    var h=parseFloat($("awal").value), d=parseFloat($("disk").value), o=$("out2");
+    if(!(h>0)||isNaN(d)||d<0||d>100){ o.innerHTML='<span>Isi harga (lebih dari 0) dan diskon antara 0 dan 100.</span>'; return; }
+    var bd=h*d/100;
+    o.innerHTML='<span>Besar diskon = '+pc(d)+'% × '+rp(h)+' = <b>'+rp(bd)+'</b></span><span>Harga dibayar = '+rp(h)+' − '+rp(bd)+' = <b>'+rp(h-bd)+'</b></span><span>Cara cepat: '+pc(100-d)+'% × '+rp(h)+' = '+rp(h-bd)+'</span>';
+  }
+  ["beli","jual"].forEach(function(i){ $(i).addEventListener("input",calc1); });
+  ["awal","disk"].forEach(function(i){ $(i).addEventListener("input",calc2); });
+  calc1(); calc2();
+
+  /* ================= CEK PEMAHAMAN (ketik angka) ================= */
+  var Q=[
+    {t:"Toko membeli 40 pensil seharga Rp80.000 dan menjual Rp2.500 per pensil. Berapa rupiah untung tiap pensil?", a:500, hint:"Cari dulu harga beli satu pensil: harga seluruhnya dibagi banyak pensil.", e:"Harga beli per pensil = 80.000 ÷ 40 = Rp2.000, jadi untung = 2.500 − 2.000 = Rp500."},
+    {t:"Tas dibeli Rp80.000 lalu dijual Rp60.000. Berapa persen ruginya?", a:25, hint:"Persen rugi dihitung terhadap harga beli, bukan harga jual.", e:"Rugi = 80.000 − 60.000 = Rp20.000. Persen rugi = 20.000 ÷ 80.000 × 100% = 25%."},
+    {t:"Sepatu Rp250.000 diskon 40%. Berapa rupiah yang harus dibayar?", a:150000, hint:"Hitung besar diskonnya dulu, lalu kurangkan dari harga awal.", e:"Diskon = 40% × 250.000 = Rp100.000. Dibayar = 250.000 − 100.000 = Rp150.000."}
+  ];
+  function parseNum(v){
+    v=String(v).toLowerCase().replace(/rp|%|\s/g,"");
+    if(/^\d{1,3}(\.\d{3})+$/.test(v)) v=v.replace(/\./g,"");
+    v=v.replace(",","."); var n=parseFloat(v); return isNaN(n)?null:n;
+  }
+  var right={}, box=$("quiz");
+  function updScore(){
+    var c=Object.keys(right).length;
+    $("score").textContent = c===3 ? "Hebat! Benar 3 dari 3." : "Benar "+c+" dari 3";
+  }
+  Q.forEach(function(q,i){
+    var d=document.createElement("div"); d.className="q";
+    var p=document.createElement("p"); p.innerHTML="<b>"+(i+1)+".</b> "+q.t; d.appendChild(p);
+    var row=document.createElement("div"); row.className="qrow";
+    var inp=document.createElement("input"); inp.type="text"; inp.id="q"+i; inp.setAttribute("inputmode","decimal"); inp.setAttribute("autocomplete","off"); inp.setAttribute("aria-label","Jawaban soal "+(i+1)); inp.placeholder="Jawabanmu";
+    var btn=document.createElement("button"); btn.type="button"; btn.className="btn"; btn.style.setProperty("--tab","var(--t7)"); btn.style.setProperty("--tabi","var(--t7i)"); btn.setAttribute("data-sfx","none"); btn.textContent="Periksa";
+    var fb=document.createElement("p"); fb.className="fb"; fb.setAttribute("aria-live","polite");
+    function check(){
+      var n=parseNum(inp.value);
+      if(n===null){ fb.className="fb no"; fb.textContent="Ketik jawabanmu dulu (angka saja)."; sfx("click"); return; }
+      if(Math.abs(n-q.a)<1e-9){ right[i]=1; d.classList.add("done"); fb.className="fb ok"; fb.textContent="Benar! "+q.e; sfx("good"); updScore(); }
+      else { delete right[i]; d.classList.remove("done"); fb.className="fb no"; fb.textContent="Belum tepat. Petunjuk: "+q.hint; sfx("bad"); updScore(); }
+    }
+    btn.addEventListener("click",check);
+    inp.addEventListener("keydown",function(e){ if(e.key==="Enter"){ e.preventDefault(); check(); } });
+    row.appendChild(inp); row.appendChild(btn); d.appendChild(row); d.appendChild(fb); box.appendChild(d);
+  });
+
+  /* mulai dari bagian yang diminta di alamat (#harga dst.) */
+  show(location.hash.slice(1),true);
+})();
+</script>
+
+</body></html>
